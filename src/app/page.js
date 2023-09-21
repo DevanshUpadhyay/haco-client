@@ -1,113 +1,251 @@
-import Image from 'next/image'
-
+import CourseCart from "@/components/CourseCart";
+import HeroVideo from "@/components/HeroVideo";
+import TestimonialCart from "@/components/TestimonialCart";
+import Image from "next/image";
+import { AiOutlineArrowDown } from "react-icons/ai";
+import { MdCheckCircle } from "react-icons/md";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+    <>
+      <div className="flex flex-col justify-center items-center gap-[50px]">
+        <div className="grid grid-cols-[5fr_3fr] items-center p-[30px] gap-[10px]">
+          <div className="grid grid-cols-[3fr_2fr] items-center">
+            <div className="flex flex-col justify-center items-start pl-[70px]">
+              <div className="flex gap-[16px]">
+                <p className="text-[60px] font-bold"> Want to</p>
+                <p className="text-blue-600 text-[60px] font-bold">learn</p>
+              </div>
+              <p className="text-[24px]">Web Development</p>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <p className="text-[20px]">Are you confused ??</p>
+              <div className="flex items-center justify-center">
+                <p>Book a free 🔴</p>
+                <p className="inline-block text-center text-[red] text-[18px] w-[60px] items-center rounded-[10px] border-[2px] border-[red] m-[4px]">
+                  LIVE
+                </p>
+                session now
+                <p className="inline-block">
+                  <AiOutlineArrowDown
+                    className="vector-graphics"
+                    size={"20px"}
+                    color="red"
+                  />
+                </p>
+              </div>
+              <button className="mt-3 bg-[#6b53ff] text-white hover:bg-[#8d49f7] py-[7px] px-[10px] rounded-[7px]">
+                Click here
+              </button>
+            </div>
+          </div>
+
+          <HeroVideo />
+        </div>
+        <div className="flex flex-col items-center w-[50%]">
+          <p className="font-bold text-[30px]">Our Courses</p>
+          <p className="text-center">
+            Dive into a world of knowledge and skill-building with our
+            meticulously designed courses. Uncover opportunities for growth,
+            learning, and success as you embark on your educational journey with
+            us.
+          </p>
+        </div>
+        <div className="flex  mx-32 justify-between items-center">
+          <CourseCart
+            src={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1689070745/java_itotdx.png"
+            }
+          />
+          <CourseCart
+            src={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1688715192/solidity_mhu9qd.png"
+            }
+          />
+          <CourseCart
+            src={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1688716282/bi7clxaeqmb3saavd62k.png"
+            }
+          />
+        </div>
+        <div className="flex flex-col items-center w-[50%]">
+          <p className="font-bold text-[30px]">Student Testimonials</p>
+          <p className="text-center">
+            Here, our community members share their experiences and insights
+            about their journey with us. Read on to discover how we've made a
+            positive impact on their lives.
+          </p>
+        </div>
+
+        <div className="flex  justify-center items-center gap-[20px] w-[80%]">
+          <TestimonialCart />
+          <TestimonialCart />
+          <TestimonialCart />
+        </div>
+        <div className="flex flex-col items-center w-full">
+          <p className="font-bold text-[30px]">Why Choose Us</p>
+          <div className="flex justify-center items-center w-full">
+            <div className="flex flex-col justify-center items-center w-[30%] p-[40px] m-[70px] rounded-[10%]  shadow-[0_0_10px_rgba(0,0,0,0.535)]">
+              <ul className="text-[18px] flex flex-col gap-4">
+                <li className="flex items-center gap-2">
+                  🔴 Live Doubt Solving Sessions
+                </li>
+                <li className="flex items-center gap-2">
+                  <MdCheckCircle color="green" /> Expert Instructors
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <MdCheckCircle color="green" />
+                  Comprehensive Course Catalog
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <MdCheckCircle color="green" />
+                  Interactive Learning Experience
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <MdCheckCircle color="green" />
+                  Flexible Learning Options
+                </li>
+                <li className="flex items-center gap-2">
+                  <MdCheckCircle color="green" /> Career development assistance
+                </li>
+                <li className="flex items-center gap-2">
+                  <MdCheckCircle color="green" /> Practical Learning Approach
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <MdCheckCircle color="green" />
+                  Affordable Pricing
+                </li>
+              </ul>
+            </div>
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              src={
+                "https://res.cloudinary.com/dcej7jjak/image/upload/v1691301895/hero2_ffyfeg.png"
+              }
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "45%" }}
             />
-          </a>
+          </div>
+        </div>
+        <div className="flex flex-col items-center w-[50%]">
+          <p className="font-bold text-[30px]">Our Programs</p>
+          <p className="text-center">
+            Welcome to Haco, an innovative and comprehensive e-learning platform
+            dedicated to providing a top-notch education in programming
+            languages. Our mission is to equip individuals like you with the
+            knowledge and skills necessary to succeed in the dynamic world of
+            coding.
+          </p>
+        </div>
+        <div className="flex justify-center items-center">
+          <Image
+            src={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1691301734/hero1_sqaauz.png"
+            }
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "53%" }}
+          />
+          <div className="flex flex-col justify-center items-center w-[43%] p-[20px] gap-2">
+            <p className="text-[30px] font-thin text-center">
+              Youthful Passion, Leading Knowledge
+            </p>
+            <p className="text-center w-[85%]">
+              Our dynamic team of young professionals is driven by a shared
+              enthusiasm for education. With up-to-date expertise, we deliver
+              top-quality programming courses that keep you ahead in the
+              fast-paced world of technology.
+            </p>
+            <ul className="text-[18px] flex flex-col gap-4">
+              <li className="flex items-center gap-2">
+                <MdCheckCircle color="green" />
+                Fresh Perspectives
+              </li>
+              <li className="flex items-center gap-2">
+                <MdCheckCircle color="green" />
+                Cutting-Edge Expertise
+              </li>
+              <li className="flex items-center gap-2">
+                <MdCheckCircle color="green" /> Staying Ahead of the Curve
+              </li>
+
+              <li className="flex items-center gap-2">
+                <MdCheckCircle color="green" />
+                Leading with knowledge
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-row-reverse justify-center items-center">
+          <Image
+            src={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1691302105/hero3_bch9mw.png"
+            }
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "53%" }}
+          />
+          <div className="flex flex-col justify-center items-center w-[43%] p-[20px] gap-2">
+            <p className="text-[30px] font-thin text-center">
+              Strive for Excellent
+            </p>
+            <p className="text-center w-[85%]">
+              Unleash your full potential and achieve mastery in coding and
+              programming through our rigorous and comprehensive curriculum.
+            </p>
+            <ul className="text-[18px] flex flex-col gap-4">
+              <li className="flex items-center gap-2">
+                <MdCheckCircle color="green" />
+                Unleash Your Full Potential
+              </li>
+              <li className="flex items-center gap-2">
+                <MdCheckCircle color="green" />
+                Elevate Your Skills
+              </li>
+              <li className="flex items-center gap-2">
+                <MdCheckCircle color="green" /> Industry-Recognized Expertise
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex justify-center items-center">
+          <Image
+            src={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1691302144/thirdsvg_c3wbdi.png"
+            }
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "53%" }}
+          />
+          <div className="flex flex-col justify-center items-center w-[43%] p-[20px] gap-2">
+            <p className="text-[30px] font-thin text-center">
+              Education is life
+            </p>
+            <p className="text-center w-[85%]">
+              Unlock limitless opportunities with our coding courses. Expert
+              instructors, hands-on learning, and affordable prices. Join us for
+              a transformative learning journey!
+            </p>
+            <ul className="text-[18px] flex flex-col gap-4">
+              <li className="flex items-center gap-2">
+                <MdCheckCircle color="green" />
+                Gain In-Demand Skills
+              </li>
+              <li className="flex items-center gap-2">
+                <MdCheckCircle color="green" />
+                Flexible and Affordable Learning
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </>
+  );
 }
