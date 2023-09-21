@@ -128,6 +128,7 @@ export default function Home() {
               height={0}
               sizes="100vw"
               style={{ width: "45%" }}
+              alt="image"
             />
           </div>
         </div>
@@ -150,6 +151,7 @@ export default function Home() {
             height={0}
             sizes="100vw"
             style={{ width: "53%" }}
+            alt="image"
           />
           <div className="flex flex-col justify-center items-center w-[43%] p-[20px] gap-2">
             <p className="text-[30px] font-thin text-center">
@@ -190,6 +192,7 @@ export default function Home() {
             height={0}
             sizes="100vw"
             style={{ width: "53%" }}
+            alt="image"
           />
           <div className="flex flex-col justify-center items-center w-[43%] p-[20px] gap-2">
             <p className="text-[30px] font-thin text-center">
@@ -223,6 +226,7 @@ export default function Home() {
             height={0}
             sizes="100vw"
             style={{ width: "53%" }}
+            alt="image"
           />
           <div className="flex flex-col justify-center items-center w-[43%] p-[20px] gap-2">
             <p className="text-[30px] font-thin text-center">

@@ -6,7 +6,7 @@ const Navbar = () => {
     <>
       <div className="py-2 flex items-center justify-around sticky top-0 z-50 bg-white">
         <div>
-          <Image src={logo} width={80} height={35} />
+          <Image src={logo} width={80} height={35} alt="image" />
         </div>
         <div>
           <ul className="flex items-center gap-14">

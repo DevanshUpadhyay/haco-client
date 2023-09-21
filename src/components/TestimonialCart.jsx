@@ -20,6 +20,7 @@ const TestimonialCart = () => {
                 width={60}
                 height={60}
                 style={{ borderRadius: "50%" }}
+                alt="image"
               />
               <div>
                 <div className="flex gap-[30px] items-center">
@@ -70,6 +71,7 @@ const TestimonialCart = () => {
             height={0}
             sizes="100vw"
             style={{ width: "100%", height: "100%" }}
+            alt="image"
           />
           <div className="absolute top-[40%] right-[40%] cursor-pointer bg-transparent">
             <MdPlayCircleOutline

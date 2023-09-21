@@ -15,6 +15,7 @@ const HeroVideo = () => {
         height={0}
         sizes="100vw"
         style={{ width: "100%" }}
+        alt="image"
       />
       <div className="absolute top-[4%] left-[10%] w-[80%]">
         {show ? (
@@ -48,6 +49,7 @@ const HeroVideo = () => {
               height={0}
               sizes="100vw"
               style={{ width: "100%" }}
+              alt="image"
             />
             <div
               className="absolute top-[35%] left-[42%] cursor-pointer"

@@ -13,6 +13,7 @@ const CourseCart = ({ src }) => {
             width={0}
             height={0}
             sizes="100vw"
+            alt="image"
             style={{ width: "100%", height: "220px", borderRadius: "5px" }}
             // style={{ borderRadius: "5px" }}
           />
