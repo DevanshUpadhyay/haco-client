@@ -5,9 +5,9 @@ const Navbar = () => {
   return (
     <>
       <div className="py-2 flex items-center justify-around sticky top-0 z-50 bg-white">
-        <div>
+        <Link href={"/"}>
           <Image src={logo} width={80} height={35} alt="image" />
-        </div>
+        </Link>
         <div>
           <ul className="flex items-center gap-14">
             <li>
@@ -30,14 +30,18 @@ const Navbar = () => {
               <Link href={"/contact"}>Contact</Link>
             </li>
             <li>
-              <button className="w-[90px] text-[#8d49f7] border-[1px] border-[#6b53ff] text-[18px] bg-white hover:border-[#6b53ff] hover:border-[2px] py-[5px] rounded-md tex font-medium ">
-                Log in
-              </button>
+              <Link href={"/login"}>
+                <button className="w-[90px] text-[#8d49f7] border-[1px] border-[#6b53ff] text-[18px] bg-white hover:border-[#6b53ff] hover:border-[2px] py-[5px] rounded-md tex font-medium ">
+                  Log in
+                </button>
+              </Link>
             </li>
             <li>
-              <button className="w-[90px] text-[#fff] border-[1px] border-[#6b53ff] text-[18px] bg-white hover:border-[#f8f3fe] hover:border-[1px] py-[5px] rounded-md tex font-medium bg-gradient-to-r from-[#8d49f7] to-[#6b53ff] transition ease-in-out delay-20">
-                Sign up
-              </button>
+              <Link href={"/register"}>
+                <button className="w-[90px] text-[#fff] border-[1px] border-[#6b53ff] text-[18px] bg-white hover:border-[#f8f3fe] hover:border-[1px] py-[5px] rounded-md tex font-medium bg-gradient-to-r from-[#8d49f7] to-[#6b53ff] transition ease-in-out delay-20">
+                  Sign up
+                </button>
+              </Link>
             </li>
           </ul>
         </div>

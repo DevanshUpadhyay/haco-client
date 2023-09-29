@@ -2,6 +2,7 @@ import CourseCart from "@/components/CourseCart";
 import HeroVideo from "@/components/HeroVideo";
 import TestimonialCart from "@/components/TestimonialCart";
 import Image from "next/image";
+import Link from "next/link";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { MdCheckCircle } from "react-icons/md";
 export default function Home() {
@@ -33,9 +34,11 @@ export default function Home() {
                   />
                 </p>
               </div>
-              <button className="mt-3 bg-[#6b53ff] text-white hover:bg-[#8d49f7] py-[7px] px-[10px] rounded-[7px]">
-                Click here
-              </button>
+              <Link href={"/request-demo"}>
+                <button className="mt-3 bg-[#6b53ff] text-white hover:bg-[#8d49f7] py-[7px] px-[10px] rounded-[7px]">
+                  Book a Free Lesson
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -55,16 +58,37 @@ export default function Home() {
             src={
               "https://res.cloudinary.com/dcej7jjak/image/upload/v1689070745/java_itotdx.png"
             }
+            category={"Java Programming + SQL"}
+            title={"Java Prodigy: Turbocharge Your Programming Skills"}
+            creator={"Deepak Sharma"}
+            views={"733"}
+            launch={"See Details"}
+            price={"$149"}
+            overPrice={"$249"}
           />
           <CourseCart
             src={
               "https://res.cloudinary.com/dcej7jjak/image/upload/v1688715192/solidity_mhu9qd.png"
             }
+            category={"Solidity"}
+            title={"Solidity Prodigy: Turbocharge Your Programming Skills"}
+            creator={"Deepak Sharma"}
+            views={"---"}
+            launch={"Coming Soon"}
+            price={"$99"}
+            overPrice={"$199"}
           />
           <CourseCart
             src={
               "https://res.cloudinary.com/dcej7jjak/image/upload/v1688716282/bi7clxaeqmb3saavd62k.png"
             }
+            category={"SQL Database"}
+            title={"SQL Prodigy: Turbocharge Your Programming Skills"}
+            creator={"Deepak Sharma"}
+            views={"---"}
+            launch={"Coming Soon"}
+            price={"$49"}
+            overPrice={"$99"}
           />
         </div>
         <div className="flex flex-col items-center w-[50%]">
@@ -77,9 +101,57 @@ export default function Home() {
         </div>
 
         <div className="flex  justify-center items-center gap-[20px] w-[80%]">
-          <TestimonialCart />
-          <TestimonialCart />
-          <TestimonialCart />
+          <TestimonialCart
+            profileIconSrc={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1691318578/konlin_lpb4vf.png"
+            }
+            imageSrc={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1691508705/konlin2_luw5sq.png"
+            }
+            videoSrc={
+              "https://res.cloudinary.com/dcej7jjak/video/upload/v1691144290/konlin_wiay2n.mp4"
+            }
+            name={"Konlin"}
+            country={"South Africa"}
+            university={"University of South Africa"}
+            comment={
+              "I just wanted to let you know how wonderful Deepak and his team from Haco are, They helped me get two distinctions in  both of my python modules, I highly recommend Haco to anyone who's looking to learn programming."
+            }
+          />
+          <TestimonialCart
+            profileIconSrc={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1691318578/yankim_fe09n9.png"
+            }
+            imageSrc={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1691508703/yankim2_l7usd2.png"
+            }
+            videoSrc={
+              "https://res.cloudinary.com/dcej7jjak/video/upload/v1691144297/yankim_xkaehs.mp4"
+            }
+            name={"Yankim"}
+            country={"Australia"}
+            university={"Murdoch University"}
+            comment={
+              "Haco is very good self learning platform for those who wants to learn programming languages, and it provide very detailed explanation and it does has very good support. Well, you have any query and Haco can provide solution in a short time."
+            }
+          />
+          <TestimonialCart
+            profileIconSrc={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1691318577/ramde_f3iq5v.png"
+            }
+            imageSrc={
+              "https://res.cloudinary.com/dcej7jjak/image/upload/v1691508702/ramde2_idy29w.png"
+            }
+            videoSrc={
+              "https://res.cloudinary.com/dcej7jjak/video/upload/v1691143441/ramde2_urk4tf.mp4"
+            }
+            name={"Ramde"}
+            country={"U.S.A"}
+            university={"Cuny University"}
+            comment={
+              "Any student, especially computer science student, if you are looking for help with programming language such as Java,SQL,Python,JavaScript okay, I have good news for you, this website is called Haco. Go ahead, take a look,you will thank me later."
+            }
+          />
         </div>
         <div className="flex flex-col items-center w-full">
           <p className="font-bold text-[30px]">Why Choose Us</p>

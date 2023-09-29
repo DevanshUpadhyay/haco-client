@@ -40,7 +40,7 @@ const HeroVideo = () => {
             </div>
           </div>
         ) : (
-          <div className="relative">
+          <div className="relative flex justify-center items-center">
             <Image
               src={
                 "https://res.cloudinary.com/dcej7jjak/image/upload/v1691508685/hero_r1ycdr.png"
@@ -52,7 +52,7 @@ const HeroVideo = () => {
               alt="image"
             />
             <div
-              className="absolute top-[35%] left-[42%] cursor-pointer"
+              className="absolute  cursor-pointer"
               onClick={() => setShow(true)}
             >
               <MdPlayCircleOutline
