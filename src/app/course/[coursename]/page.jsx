@@ -6,6 +6,7 @@ import { AiFillEye } from "react-icons/ai";
 import { MdPersonAdd } from "react-icons/md";
 import { BsPeopleFill } from "react-icons/bs";
 import Accordion from "@/components/Accordion";
+import Link from "next/link";
 const CourseDetails = ({ params }) => {
   return (
     <>
@@ -55,12 +56,14 @@ const CourseDetails = ({ params }) => {
               <MdPersonAdd />
               <p>95</p>
             </div>
-            <button
-              className="w-fit py-[7px] px-[15px] bg-yellow-300 rounded-2xl hover:bg-yellow-600 transition-all duration-150 ease-in-out"
-              //   style={{ border: "2px solid red" }}
+            <Link
+              className="w-fit py-[7px] px-[15px] text-white bg-yellow-500 rounded-2xl hover:bg-yellow-600 transition-all duration-150 ease-in-out"
+              href={
+                "/course/Java-Prodigy-Turbocharge-your-programming-skills/learn"
+              }
             >
-              Subscribe
-            </button>
+              Watch Now
+            </Link>
           </div>
         </div>
         <div

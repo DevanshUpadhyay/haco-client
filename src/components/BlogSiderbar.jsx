@@ -1,3 +1,4 @@
+"use client";
 import {
   TiSocialFacebookCircular,
   TiSocialInstagramCircular,
@@ -6,7 +7,9 @@ import {
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 const BlogSiderbar = () => {
+  const router = useRouter();
   const categories = [
     "All",
     "Blockchain",
@@ -45,8 +48,15 @@ const BlogSiderbar = () => {
         </div>
         <div className="flex flex-col p-[10px] w-full gap-[20px]">
           <p className="text-[24px] font-bold">Recent Posts</p>
-          <div className="grid grid-cols-[1fr_3fr] items-center justify-between cursor-pointer w-full gap-2">
-            <div className="w-[100px] h-[60px]">
+          <div
+            className="grid grid-cols-[1fr_3fr] p-[5px] transition-all duration-150 ease-in-out items-center justify-between cursor-pointer w-full gap-2 hover:bg-gray-200 hover:underline"
+            onClick={() =>
+              router.push(
+                "/blog/Mastering-Java-A-Comprehensive-Guide-to-Java-Programming"
+              )
+            }
+          >
+            <div className="w-[90px] h-[60px]">
               <Image
                 src={
                   "https://res.cloudinary.com/dcej7jjak/image/upload/v1690882966/fxlv7q8wm277c3bvohzk.webp"
@@ -64,7 +74,14 @@ const BlogSiderbar = () => {
         </div>
         <div className="flex flex-col p-[10px] w-full gap-[20px]">
           <p className="text-[24px] font-bold">Popular Posts</p>
-          <div className="grid grid-cols-[1fr_3fr] items-center justify-between cursor-pointer w-full gap-2">
+          <div
+            className="grid grid-cols-[1fr_3fr] p-[5px] transition-all duration-150 ease-in-out items-center justify-between cursor-pointer w-full gap-2 hover:bg-gray-200 hover:underline"
+            onClick={() =>
+              router.push(
+                "/blog/Mastering-Java-A-Comprehensive-Guide-to-Java-Programming"
+              )
+            }
+          >
             <div className="w-[100px] h-[60px]">
               <Image
                 src={

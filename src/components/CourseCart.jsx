@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const CourseCart = ({
   src,
@@ -10,11 +12,16 @@ const CourseCart = ({
   launch,
   creator,
 }) => {
+  const router = useRouter();
   return (
     <>
       <div
-        className="w-[31%] rounded-[5px] flex flex-col shadow-[0_0_10px_rgba(0,0,0,0.535)] relative hover:translate-y-[-10px] transition-all duration-500 ease-in-out"
-        // style={{ width: "30%" }}
+        className="w-[31%] rounded-[5px] flex flex-col shadow-[0_0_10px_rgba(0,0,0,0.535)] relative hover:translate-y-[-10px] transition-all duration-500 ease-in-out cursor-pointer"
+        onClick={() =>
+          router.push(
+            "/course/Java-Prodigy-Turbocharge-your-programming-skills"
+          )
+        }
       >
         <div className="rounded-[5px]">
           <Image
