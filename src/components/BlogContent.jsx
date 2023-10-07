@@ -11,7 +11,7 @@ const BlogContent = () => {
   return (
     <div>
       {isClient && (
-        <p className="p-[20px]" dangerouslySetInnerHTML={blogContent}></p>
+        <p className="p-2" dangerouslySetInnerHTML={blogContent}></p>
       )}
     </div>
   );

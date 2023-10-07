@@ -8,15 +8,20 @@ import { MdCheckCircle } from "react-icons/md";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col justify-center items-center gap-[50px]">
-        <div className="grid grid-cols-[5fr_3fr] items-center p-[30px] gap-[10px]">
-          <div className="grid grid-cols-[3fr_2fr] items-center">
-            <div className="flex flex-col justify-center items-start pl-[70px]">
-              <div className="flex gap-[16px]">
-                <p className="text-[60px] font-bold"> Want to</p>
-                <p className="text-blue-600 text-[60px] font-bold">learn</p>
+      <div className="flex flex-col justify-center items-center gap-10">
+        <div className="w-full grid lg:grid-cols-[5fr_3fr] sm:grid-cols-1 items-center py-4 gap-[10px]">
+          <div className="w-full grid justify-center md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr] xl:grid-cols-[3fr_2fr] sm:grid-cols-1 items-center py-8">
+            <div className="flex flex-col items-center justify-center ">
+              <div className="flex gap-[16px] ">
+                <p className="xl:text-[60px] lg:text-[45px] text-[24px] font-bold">
+                  {" "}
+                  Want to
+                </p>
+                <p className="text-blue-600 xl:text-[60px] lg:text-[45px] text-[24px] font-bold">
+                  learn
+                </p>
               </div>
-              <p className="text-[24px]">Web Development</p>
+              <p className="text-[20px]">Web Development</p>
             </div>
             <div className="flex flex-col items-center justify-center">
               <p className="text-[20px]">Are you confused ??</p>
@@ -34,17 +39,19 @@ export default function Home() {
                   />
                 </p>
               </div>
-              <Link href={"/request-demo"}>
-                <button className="mt-3 bg-[#6b53ff] text-white hover:bg-[#8d49f7] py-[7px] px-[10px] rounded-[7px]">
-                  Book a Free Lesson
-                </button>
+              <Link
+                href={"/request-demo"}
+                className="mt-3 bg-[#6b53ff] text-white hover:bg-[#8d49f7] py-[7px] px-[10px] rounded-[7px]  select-none"
+              >
+                Book a Free Lesson
               </Link>
             </div>
           </div>
-
-          <HeroVideo />
+          <div className="md:p-12 lg:p-2">
+            <HeroVideo />
+          </div>
         </div>
-        <div className="flex flex-col items-center w-[50%]">
+        <div className="flex flex-col items-center lg:w-[50%] w-[90%]">
           <p className="font-bold text-[30px]">Our Courses</p>
           <p className="text-center">
             Dive into a world of knowledge and skill-building with our
@@ -53,7 +60,7 @@ export default function Home() {
             us.
           </p>
         </div>
-        <div className="flex  mx-32 justify-between items-center">
+        <div className="flex flex-col md:flex-row flex-wrap w-full justify-center items-center gap-10 ">
           <CourseCart
             src={
               "https://res.cloudinary.com/dcej7jjak/image/upload/v1689070745/java_itotdx.png"
@@ -91,7 +98,7 @@ export default function Home() {
             overPrice={"$99"}
           />
         </div>
-        <div className="flex flex-col items-center w-[50%]">
+        <div className="flex flex-col items-center lg:w-[50%] w-[90%]">
           <p className="font-bold text-[30px]">Student Testimonials</p>
           <p className="text-center">
             Here, our community members share their experiences and insights
@@ -100,7 +107,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="flex  justify-center items-center gap-[20px] w-[80%]">
+        <div className="flex flex-col md:flex-row flex-wrap    justify-center items-center gap-[20px]">
           <TestimonialCart
             profileIconSrc={
               "https://res.cloudinary.com/dcej7jjak/image/upload/v1691318578/konlin_lpb4vf.png"
@@ -153,10 +160,10 @@ export default function Home() {
             }
           />
         </div>
-        <div className="flex flex-col items-center w-full">
+        <div className="flex flex-col items-center w-full gap-3">
           <p className="font-bold text-[30px]">Why Choose Us</p>
-          <div className="flex justify-center items-center w-full">
-            <div className="flex flex-col justify-center items-center w-[30%] p-[40px] m-[70px] rounded-[10%]  shadow-[0_0_10px_rgba(0,0,0,0.535)]">
+          <div className="flex flex-col md:flex-row justify-center items-center w-full p-3">
+            <div className="flex flex-col w-full lg:w-[30%] p-5 justify-center items-center rounded-[10%]  shadow-[0_0_10px_rgba(0,0,0,0.535)]">
               <ul className="text-[18px] flex flex-col gap-4">
                 <li className="flex items-center gap-2">
                   🔴 Live Doubt Solving Sessions
@@ -193,18 +200,18 @@ export default function Home() {
               </ul>
             </div>
             <Image
+              className="w-full md:w-[50%] lg:w-[45%]"
               src={
                 "https://res.cloudinary.com/dcej7jjak/image/upload/v1691301895/hero2_ffyfeg.png"
               }
               width={0}
               height={0}
               sizes="100vw"
-              style={{ width: "45%" }}
               alt="image"
             />
           </div>
         </div>
-        <div className="flex flex-col items-center w-[50%]">
+        <div className="flex flex-col items-center lg:w-[50%] w-[90%]">
           <p className="font-bold text-[30px]">Our Programs</p>
           <p className="text-center">
             Welcome to Haco, an innovative and comprehensive e-learning platform
@@ -214,18 +221,18 @@ export default function Home() {
             coding.
           </p>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex flex-col md:flex-row justify-center items-center">
           <Image
+            className="w-full md:w-[50%]"
             src={
               "https://res.cloudinary.com/dcej7jjak/image/upload/v1691301734/hero1_sqaauz.png"
             }
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "53%" }}
             alt="image"
           />
-          <div className="flex flex-col justify-center items-center w-[43%] p-[20px] gap-2">
+          <div className="flex flex-col justify-center items-center w-full p-[20px] gap-2">
             <p className="text-[30px] font-thin text-center">
               Youthful Passion, Leading Knowledge
             </p>
@@ -255,18 +262,18 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className="flex flex-row-reverse justify-center items-center">
+        <div className="flex flex-col md:flex-row-reverse justify-center items-center">
           <Image
+            className="w-full md:w-[50%]"
             src={
               "https://res.cloudinary.com/dcej7jjak/image/upload/v1691302105/hero3_bch9mw.png"
             }
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "53%" }}
             alt="image"
           />
-          <div className="flex flex-col justify-center items-center w-[43%] p-[20px] gap-2">
+          <div className="flex flex-col justify-center items-center w-full p-[20px] gap-2">
             <p className="text-[30px] font-thin text-center">
               Strive for Excellent
             </p>
@@ -289,18 +296,18 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex  flex-col md:flex-row justify-center items-center">
           <Image
+            className="w-full md:w-[50%]"
             src={
               "https://res.cloudinary.com/dcej7jjak/image/upload/v1691302144/thirdsvg_c3wbdi.png"
             }
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "53%" }}
             alt="image"
           />
-          <div className="flex flex-col justify-center items-center w-[43%] p-[20px] gap-2">
+          <div className="flex flex-col justify-center items-center w-full p-[20px] gap-2">
             <p className="text-[30px] font-thin text-center">
               Education is life
             </p>

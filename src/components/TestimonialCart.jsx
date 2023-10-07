@@ -17,7 +17,7 @@ const TestimonialCart = ({
   const [show, setShow] = useState(false);
   return (
     <>
-      <div className="h-[520px]  p-[15px] gap-[10px] relative flex flex-col items-center bg-white rounded-xl">
+      <div className="h-[520px] lg:w-[380px] md:w-[360px] w-[360px]  p-[15px] gap-[10px] relative flex flex-col items-center bg-white rounded-xl  select-none">
         <div className="relative">
           <div className="flex flex-col ">
             <div className="flex gap-[10px] items-center ">

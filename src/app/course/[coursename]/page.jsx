@@ -11,9 +11,9 @@ const CourseDetails = ({ params }) => {
   return (
     <>
       <div className="flex flex-col gap-10 justify-center ">
-        <div className="flex justify-around m-[20px] gap-[30px]">
+        <div className="grid grid-cols-1  lg:grid-cols-2  justify-around lg:p-[20px] md:p-[20px] gap-[10px] lg:gap-[30px] p-[15px]">
           <div className="w-full flex justify-center">
-            <div className="flex justify-center w-full">
+            {/* <div className="flex justify-center w-full">
               <Image
                 src={
                   "https://res.cloudinary.com/dcej7jjak/image/upload/v1689070745/java_itotdx.png"
@@ -23,6 +23,15 @@ const CourseDetails = ({ params }) => {
                 sizes="100vw"
                 style={{ width: "100%" }}
               />
+            </div> */}
+            <div className="w-full">
+              <iframe
+                className="w-[100%] h-[230px] md:h-[425px] lg:h-[350px]"
+                src={`https://geo.dailymotion.com/player/xjs1z.html?video=k2TwL9Abn1t7uYzvTK1`}
+                // allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+                frameborder="0"
+              ></iframe>
             </div>
           </div>
           <div className="flex flex-col w-full gap-2">
@@ -56,19 +65,29 @@ const CourseDetails = ({ params }) => {
               <MdPersonAdd />
               <p>95</p>
             </div>
-            <Link
-              className="w-fit py-[7px] px-[15px] text-white bg-yellow-500 rounded-2xl hover:bg-yellow-600 transition-all duration-150 ease-in-out"
-              href={
-                "/course/Java-Prodigy-Turbocharge-your-programming-skills/learn"
-              }
-            >
-              Watch Now
-            </Link>
+            <div className="flex items-center gap-3">
+              <Link
+                className="w-fit py-[7px] px-[15px] text-white bg-yellow-500 rounded-2xl hover:bg-yellow-600 transition-all duration-150 ease-in-out"
+                href={
+                  "/course/Java-Prodigy-Turbocharge-your-programming-skills/learn"
+                }
+              >
+                Watch Now
+              </Link>
+              <Link
+                className="w-fit py-[7px] px-[15px] text-white bg-purple-600 rounded-2xl hover:bg-purple-700 transition-all duration-150 ease-in-out"
+                href={
+                  "/subscribe/Java-Prodigy-Turbocharge-your-programming-skills"
+                }
+              >
+                Subscribe
+              </Link>
+            </div>
           </div>
         </div>
         <div
-          className="flex flex-col items-center justify-center px-[15%] gap-10"
-          //   style={{ border: "2px solid red" }}
+          className="flex flex-col items-center justify-center p-[10px] lg:p-10 gap-10 "
+          // style={{ border: "2px solid red" }}
         >
           <div className=" flex flex-col w-full border-[1px] border-gray-400 px-[5%] py-[3%] gap-4">
             <p className="text-[20px] font-bold">What you'll learn</p>
@@ -91,16 +110,16 @@ const CourseDetails = ({ params }) => {
           <div className=" flex flex-col w-full border-[1px] border-gray-400 px-[5%] py-[3%] gap-4">
             <p className="text-[20px] font-bold">Course content</p>
             <ul className="flex flex-col gap-3">
-              <li className="border-[1px] border-gray-400 py-[10px] px-[25px] shadow-md font-medium">
+              <li className="border-[1px] border-gray-400 py-[10px] px-[25px] shadow-sm font-medium">
                 100+ Videos(avg 30min duration)
               </li>
-              <li className="border-[1px] border-gray-400  py-[10px] px-[25px] shadow-md font-medium">
+              <li className="border-[1px] border-gray-400  py-[10px] px-[25px] shadow-sm font-medium">
                 200+ Coding Questions
               </li>
-              <li className="border-[1px] border-gray-400 py-[10px] px-[25px] shadow-md font-medium">
+              <li className="border-[1px] border-gray-400 py-[10px] px-[25px] shadow-sm font-medium">
                 ⏬ Downloadable Resources
               </li>
-              <li className="border-[1px] border-gray-400 py-[10px] px-[25px] shadow-md font-medium">
+              <li className="border-[1px] border-gray-400 py-[10px] px-[25px] shadow-sm font-medium">
                 🔴Live Doubt Solving & Mentorship Session
               </li>
             </ul>

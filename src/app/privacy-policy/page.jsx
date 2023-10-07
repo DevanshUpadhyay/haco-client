@@ -4,7 +4,7 @@ const PrivacyPolicy = () => {
       <div className="flex flex-col">
         <p className="text-center text-[30px]">Privacy Policy</p>
 
-        <div className="overflow-y-scroll flex flex-col gap-2 p-12">
+        <div className="overflow-y-scroll flex flex-col gap-2 p-5">
           <p className="text-[17px] font-bold">Privacy Policy</p>
           <p>
             This Privacy Policy discloses the privacy practices for HACO

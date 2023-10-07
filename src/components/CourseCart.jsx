@@ -1,6 +1,5 @@
-"use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const CourseCart = ({
   src,
@@ -12,17 +11,9 @@ const CourseCart = ({
   launch,
   creator,
 }) => {
-  const router = useRouter();
   return (
     <>
-      <div
-        className="w-[31%] rounded-[5px] flex flex-col shadow-[0_0_10px_rgba(0,0,0,0.535)] relative hover:translate-y-[-10px] transition-all duration-500 ease-in-out cursor-pointer"
-        onClick={() =>
-          router.push(
-            "/course/Java-Prodigy-Turbocharge-your-programming-skills"
-          )
-        }
-      >
+      <div className="w-[90%] lg:w-[350px] md:w-[360px]  rounded-[5px] flex flex-col shadow-[0_0_10px_rgba(0,0,0,0.535)] relative hover:translate-y-[-10px] transition-all duration-500 ease-in-out">
         <div className="rounded-[5px]">
           <Image
             src={src}
@@ -50,9 +41,12 @@ const CourseCart = ({
             {title}
           </p>
           <div>
-            <button className="px-[7px] text-[#fff] border-[1px] border-[#6b53ff] text-[16px] bg-white hover:border-[#f8f3fe] hover:border-[1px] py-[5px] rounded-2xl tex font-medium bg-gradient-to-r from-[#8d49f7] to-[#6b53ff] transition ease-in-out delay-20">
+            <Link
+              className="px-[10px] text-[#fff]  text-[16px] py-[7px] rounded-2xl  font-medium bg-[#6b53ff] transition ease-in-out duration-300 hover:bg-[#8d49f7]  select-none"
+              href={"/course/Java-Prodigy-Turbocharge-your-programming-skills"}
+            >
               {launch}
-            </button>
+            </Link>
           </div>
           <div className="flex w-full box-content border-gray-300 border-t  justify-between items-center">
             <div className="w-[60%] flex items-center justify-center h-[50px]">

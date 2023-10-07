@@ -1,9 +1,9 @@
 const TermsAndConditions = () => {
   return (
     <>
-      <div className="flex flex-col items-center p-12">
-        <p className="text-[18px] font-bold">TERMS AND CONDITIONS</p>
-        <div className="flex flex-col gap-3">
+      <div className="flex flex-col  ">
+        <p className="text-center text-[30px]">Terms and Conditions</p>
+        <div className="flex flex-col gap-2 p-5">
           <p className="text-[17px] font-bold">INTRODUCTION</p>
           <ul>
             <li>

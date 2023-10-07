@@ -12,8 +12,8 @@ const Register = () => {
   const [image, setImage] = useState("");
   const [show, setShow] = useState(false);
   return (
-    <div className="flex flex-col h-[90vh] justify-center items-center mt-16">
-      <div className="flex flex-col gap-5 items-center">
+    <div className="flex flex-col justify-center items-center mt-16 p-3">
+      <div className="flex flex-col w-full gap-5 items-center">
         <p className="text-[30px] font-bold">Sign Up to haco.study</p>
         <Image
           src={"/profile.png"}
@@ -24,11 +24,14 @@ const Register = () => {
           height={100}
           className="rounded-full"
         />
-        <div className="flex flex-col gap-3">
+        <div
+          className="flex flex-col w-full sm:w-[70%] lg:w-[40%] gap-4 p-2"
+          // style={{ border: "2px solid red" }}
+        >
           <div className=" flex flex-col gap-3">
             <label htmlFor="name">Name</label>
             <input
-              className="py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out w-[500px]"
+              className="py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out "
               type="text"
               required
               id="name"
@@ -39,7 +42,7 @@ const Register = () => {
           <div className=" flex flex-col gap-3">
             <label htmlFor="email">Email Address</label>
             <input
-              className="w-[500px] py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
+              className="py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
               type="email"
               required
               id="email"
@@ -50,7 +53,7 @@ const Register = () => {
           <div className=" flex flex-col gap-3">
             <label htmlFor="password">Password</label>
             <input
-              className="w-[500px] py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
+              className=" py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
               type={show ? "text" : "password"}
               required
               id="password"
@@ -61,7 +64,7 @@ const Register = () => {
           <div className=" flex flex-col gap-3">
             <label htmlFor="referralCode">Referral Code if any</label>
             <input
-              className="py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out w-[500px]"
+              className="py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out "
               type="text"
               id="referralCode"
               value={referralCode}

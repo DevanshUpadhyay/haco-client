@@ -6,7 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 const HeroVideo = () => {
   const [show, setShow] = useState(false);
   return (
-    <div className="relative">
+    <div className="relative  select-none">
       <Image
         src={
           "https://res.cloudinary.com/dcej7jjak/image/upload/v1691509060/laptop_kjhsaf.png"

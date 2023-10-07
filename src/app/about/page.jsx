@@ -4,11 +4,11 @@ import { RiSecurePaymentFill } from "react-icons/ri";
 const About = () => {
   return (
     <>
-      <div className="flex flex-col p-[20px] mx-[10%] shadow-lg gap-4">
+      <div className="flex flex-col p-2 mx-2 lg:mx-[10%] md:mx-6 shadow-lg gap-4">
         <p className="text-[40px] font-bold">About Us</p>
         <div className="flex flex-col items-center p-[8px] gap-10">
           <p className="text-[30px] font-semibold">People behind the magic!</p>
-          <div className="w-full flex justify-center gap-24">
+          <div className="w-full flex flex-col md:flex-row justify-around gap-6">
             <div className="flex flex-col items-center">
               <Image
                 className="rounded-full"
@@ -44,24 +44,26 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center p-[20px]">
+        <div className="flex flex-col justify-center p-2">
           <p>
-            <span className="text-[30px] font-medium">Hola; </span>
+            <span className="text-[30px] font-medium">Hola:{")"} </span>
             We are a team of full-stack developer and a teacher and a editor.
             Our mission is to provide quality content at reasonable price
           </p>
         </div>
-        <div className="flex items-center flex-col gap-3">
+        <div className="flex items-center flex-col gap-3 p-2">
           <p className="italic">
             {" "}
             We are a video streaming platform with some premium courses
             available only for premium user.
           </p>
-          <div className="flex items-center gap-6">
-            <RiSecurePaymentFill />
-            <p className="text-[18px] font-sans uppercase">
-              Payment is Secured by Paypal
-            </p>
+          <div className="flex flex-col md:flex-row items-center gap-3">
+            <div className="flex items-center gap-1">
+              <RiSecurePaymentFill />
+              <p className="text-[18px] font-sans uppercase">
+                Payment is Secured by Paypal
+              </p>
+            </div>
             <Link
               className="bg-orange-400 py-[5px] px-[15px] rounded-md text-white hover:bg-orange-500 transition-all duration-300 ease-in-out w-fit"
               href={"/"}
@@ -70,7 +72,7 @@ const About = () => {
             </Link>
           </div>
         </div>
-        <div>
+        <div className="w-full p-4">
           <video
             width={"100%"}
             muted
@@ -85,7 +87,7 @@ const About = () => {
             disableRemotePlayback
           ></video>
         </div>
-        <div className="flex flex-col items-center p-[20px] gap-4">
+        <div className="flex flex-col items-center p-2 gap-4">
           <p className="text-[40px] font-bold">haco.study</p>
           <div className="flex flex-col gap-4">
             <p>

@@ -8,14 +8,14 @@ const Contact = () => {
   const [message, setMessage] = useState("");
 
   return (
-    <div className="flex flex-col h-[90vh] justify-center items-center">
-      <div className="flex flex-col gap-6 items-center">
+    <div className="flex flex-col h-[90vh] justify-center items-center p-3">
+      <div className="flex flex-col w-full gap-6 items-center">
         <p className="text-[30px] font-bold">Contact Us</p>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col w-full sm:w-[70%] lg:w-[40%] gap-4 p-2">
           <div className=" flex flex-col gap-3">
             <label htmlFor="email">Email Address</label>
             <input
-              className="w-[500px] py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
+              className=" py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
               type="email"
               required
               id="email"
@@ -26,7 +26,7 @@ const Contact = () => {
           <div className=" flex flex-col gap-3">
             <label htmlFor="password">Password</label>
             <input
-              className="w-[500px] py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
+              className=" py-[3px] px-[10px] rounded-[3px] h-[40px] bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
               type="password"
               required
               id="password"
@@ -42,7 +42,7 @@ const Contact = () => {
               id="message"
               cols="30"
               rows="4"
-              className="w-[500px] py-[3px] px-[10px] rounded-[3px]  bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
+              className=" py-[3px] px-[10px] rounded-[3px]  bg-transparent border-[1px] border-gray-300 hover:border-gray-400 transition-all duration-300 ease-in-out"
               placeholder="Your Message...."
             ></textarea>
           </div>
