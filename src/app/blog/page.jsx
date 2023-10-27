@@ -1,32 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import BlogSiderbar from "@/components/BlogSiderbar";
+import { getAllBlogs } from "@/functions";
 
-const Blog = () => {
-  const blogs = [
-    {
-      id: 1,
-      title: "Mastering Java: A Comprehensive Guide to Java Programming",
-      description:
-        " Structured Query Language (SQL) is a powerful and essential tool for working with relational databases. Whether you're  starting your journey as a database developer, data analyst,  or web developer, understanding SQL fundamentals is a crucial  first step. In this step-by-step tutorial, we'll take you through the core concepts of SQL, enabling you to query, manipulate, and manage data effectively.",
-      imgUrl:
-        "https://res.cloudinary.com/dcej7jjak/image/upload/v1690882966/fxlv7q8wm277c3bvohzk.webp",
-      category: " Programming Language",
-      creator: "Chirag Bum",
-      date: "1 August 2023",
-    },
-    {
-      id: 2,
-      title: "Mastering Java: A Comprehensive Guide to Java Programming",
-      description:
-        " Structured Query Language (SQL) is a powerful and essential tool for working with relational databases. Whether you're  starting your journey as a database developer, data analyst,  or web developer, understanding SQL fundamentals is a crucial  first step. In this step-by-step tutorial, we'll take you through the core concepts of SQL, enabling you to query, manipulate, and manage data effectively.",
-      imgUrl:
-        "https://res.cloudinary.com/dcej7jjak/image/upload/v1690882966/fxlv7q8wm277c3bvohzk.webp",
-      category: " Programming Language",
-      creator: "Chirag Bum",
-      date: "1 August 2023",
-    },
-  ];
+const Blog = async () => {
+  const blog = await getAllBlogs();
+  const blogs = blog.allblogs;
   return (
     <>
       <div className="flex flex-col">
@@ -36,7 +15,7 @@ const Blog = () => {
             {blogs.map((item, index) => (
               <div className="flex flex-col bg-white hover:shadow-[0_0_10px_rgba(0, 0, 0, 0.300)]  w-full transition-all duration-300 relative rounded-[5px]">
                 <Image
-                  src={item.imgUrl}
+                  src={item.poster.url}
                   width={0}
                   height={0}
                   sizes="100vw"
@@ -57,9 +36,9 @@ const Blog = () => {
                   <div className="mb-[20px]">
                     <Link
                       className="p-[10px] text-violet-900"
-                      href={
-                        "/blog/Mastering-Java-A-Comprehensive-Guide-to-Java-Programming"
-                      }
+                      href={`/blog/${item.title.replace(/\s+/g, "-")}/${
+                        item._id
+                      }`}
                     >
                       Read More {">>"}
                     </Link>
@@ -67,9 +46,9 @@ const Blog = () => {
                   <div className="flex w-full border-t-[1px] border-gray-300 py-[5px] px-[10px] items-center">
                     <div className="w-full opacity-50">
                       <div className="flex items-center gap-1">
-                        <p> {item.creator}</p>
+                        <p> {item.createdBy}</p>
                         <p>---</p>
-                        <p> {item.datex}</p>
+                        <p> {item.postedAt}</p>
                       </div>
                     </div>
                   </div>
@@ -77,7 +56,7 @@ const Blog = () => {
               </div>
             ))}
           </div>
-          <BlogSiderbar />
+          <BlogSiderbar blog={blog} />
         </div>
       </div>
     </>

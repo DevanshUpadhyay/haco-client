@@ -79,9 +79,16 @@ const CourseContent = () => {
         // style={{ border: "2px solid green" }}
       >
         <div className="flex flex-col  gap-5 lg:p-[30px]">
-          <iframe
+          {/* <iframe
             className="w-full h-[230px] md:h-[440px] lg:h-[500px]"
             src={`https://geo.dailymotion.com/player/xjs1z.html?video=${course[0].sections[sectionNumber].lectures[lectureNumber].videoUrl}`}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            frameborder="0"
+          ></iframe> */}
+          <iframe
+            className="w-full h-[230px] md:h-[440px] lg:h-[500px]"
+            src={`https://geo.dailymotion.com/player/xkjxk.html?video=${course[0].sections[sectionNumber].lectures[lectureNumber].videoUrl}`}
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
             frameborder="0"

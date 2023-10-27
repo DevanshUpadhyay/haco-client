@@ -15,103 +15,6 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <>
-      {/* <div
-        className="flex flex-col mt-[50px] bg-[#eae5f0] p-3"
-        // style={{ border: "2px solid blue" }}
-      >
-        
-        
-        <div
-          className="grid grid-cols-1 md:grid-cols-[3fr_4fr_3fr]  w-full gap-2"
-          // style={{ border: "2px solid green" }}
-        >
-          <div
-            className="flex flex-col  md:items-center  gap-2 "
-            // style={{ border: "2px solid red" }}
-          >
-            <div>
-              <Link href={"/"}>
-                <Image
-                  src={"/logo.png"}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: "90px" }}
-                />
-              </Link>
-            </div>
-            <p className="text-[17px]  font-bold">All Rights Reserved @haco</p>
-            <p className="md:text-center">
-              Hi, We are a team of full-stack developer and a teacher and a
-              editor. Our mission is to provide quality content at reasonable
-              price.
-            </p>
-          </div>
-          <div className="flex flex-col  md:items-center gap-1">
-            <p className="text-[20px] font-medium my-2">Helpful Pages</p>
-
-            <Link href={"/privacy-policy"}>
-              <p>PRIVACY POLICY</p>
-            </Link>
-            <Link href={"/terms-&-conditions"}>
-              <p>TERMS AND CONDITIONS</p>
-            </Link>
-            <Link href={"/shipping-&-delivery-policy"}>
-              <p>SHIPPING AND DELIVERY POLICY</p>
-            </Link>
-            <Link href={"/refund-policy"}>
-              <p>REFUND AND CANCELLATION POLICY</p>
-            </Link>
-          </div>
-          <div
-            className="flex flex-col  md:items-center "
-            // style={{ border: "2px solid red" }}
-          >
-            <p className="text-[20px] font-medium my-2">Social media links</p>
-            <div className="flex flex-col ">
-              <div className="flex items-center justify-between w-[130px]">
-                <p className="text-[18px]">Youtube</p>
-                <Link
-                  href={
-                    "https://www.youtube.com/channel/UCRBsGueFX5-h3vcKhzyIBUQ"
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TiSocialYoutubeCircular size={"40"} />
-                </Link>
-              </div>
-              <div className="flex items-center justify-between w-[130px]">
-                <p className="text-[18px]">Instagram</p>
-                <Link
-                  href={"http://instagram.com"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TiSocialInstagramCircular size={"40"} />
-                </Link>
-              </div>
-              <div
-                className="flex items-center justify-between w-[130px]"
-                // style={{ border: "2px solid black" }}
-              >
-                <p className="text-[18px]">Facebook </p>
-                <Link
-                  href={"http://facebook.com"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TiSocialFacebookCircular size={"40"} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col justify-center items-center w-full my-3">
-          <p className="text-[17px] font-bold">© 2023 Copyright: haco.study</p>
-        </div>
-      </div> */}
-
       <footer className="bg-white dark:bg-gray-900">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div
@@ -123,7 +26,7 @@ const Footer = () => {
               // style={{ border: "2px solid red" }}
             >
               <Link href={"/"}>
-                <Image src={"/logo.png"} width={100} height={100} />
+                <Image src={"/logo.png"} width={100} height={54} />
               </Link>
 
               <p>
@@ -159,18 +62,12 @@ const Footer = () => {
                 </h2>
                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                   <li className="mb-4">
-                    <a
-                      href="https://github.com/themesberg/flowbite"
-                      className="hover:underline "
-                    >
+                    <a href="/" className="hover:underline ">
                       Github
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="https://discord.gg/4eeurUVvTy"
-                      className="hover:underline"
-                    >
+                    <a href="/" className="hover:underline">
                       Discord
                     </a>
                   </li>
@@ -215,14 +112,14 @@ const Footer = () => {
           <div className="sm:flex sm:items-center sm:justify-between">
             <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
               © 2023{" "}
-              <a href="https://flowbite.com/" className="hover:underline">
+              <a href="/" className="hover:underline">
                 haco™
               </a>
               . All Rights Reserved.
             </span>
             <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
               <a
-                href="#"
+                href="/"
                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <svg
@@ -241,7 +138,7 @@ const Footer = () => {
                 <span className="sr-only">Facebook page</span>
               </a>
               <a
-                href="#"
+                href="/"
                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <svg
@@ -256,7 +153,7 @@ const Footer = () => {
                 <span className="sr-only">Discord community</span>
               </a>
               <a
-                href="#"
+                href="/"
                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <svg
@@ -275,7 +172,7 @@ const Footer = () => {
                 <span className="sr-only">Twitter page</span>
               </a>
               <a
-                href="#"
+                href="/"
                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <svg
@@ -294,7 +191,7 @@ const Footer = () => {
                 <span className="sr-only">GitHub account</span>
               </a>
               <a
-                href="#"
+                href="/"
                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <svg

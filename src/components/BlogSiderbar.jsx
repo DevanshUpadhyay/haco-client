@@ -1,4 +1,3 @@
-"use client";
 import {
   TiSocialFacebookCircular,
   TiSocialInstagramCircular,
@@ -7,9 +6,8 @@ import {
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-const BlogSiderbar = () => {
-  const router = useRouter();
+
+const BlogSiderbar = ({ blog }) => {
   const categories = [
     "All",
     "Blockchain",
@@ -48,55 +46,47 @@ const BlogSiderbar = () => {
         </div>
         <div className="flex flex-col p-[10px] w-full gap-[20px]">
           <p className="text-[24px] font-bold">Recent Posts</p>
-          <div
-            className="grid grid-cols-[1fr_3fr] p-[5px] transition-all duration-150 ease-in-out items-center justify-between cursor-pointer w-full gap-2 hover:bg-gray-200 hover:underline"
-            onClick={() =>
-              router.push(
-                "/blog/Mastering-Java-A-Comprehensive-Guide-to-Java-Programming"
-              )
-            }
-          >
-            <div className="w-[90px] h-[60px]">
-              <Image
-                src={
-                  "https://res.cloudinary.com/dcej7jjak/image/upload/v1690882966/fxlv7q8wm277c3bvohzk.webp"
-                }
-                width={0}
-                height={0}
-                sizes="100vw"
-                style={{ width: "100%" }}
-              />
+          {blog.recentBlogs.map((item, index) => (
+            <div className="grid grid-cols-[1fr_3fr] p-[5px] transition-all duration-150 ease-in-out items-center justify-between  cursor-pointer w-full gap-2  hover:underline">
+              <div className="w-[90px] h-[60px]">
+                <Image
+                  src={item.poster.url}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
+              <Link
+                href={`/blog/${item.title.replace(/\s+/g, "-")}/${item._id}`}
+                className="line-clamp-3 text-[15px]"
+              >
+                {item.title}
+              </Link>
             </div>
-            <p className="line-clamp-3 text-[15px]">
-              Mastering Java: A Comprehensive Guide to Java Programming
-            </p>
-          </div>
+          ))}
         </div>
         <div className="flex flex-col p-[10px] w-full gap-[20px]">
           <p className="text-[24px] font-bold">Popular Posts</p>
-          <div
-            className="grid grid-cols-[1fr_3fr] p-[5px] transition-all duration-150 ease-in-out items-center justify-between cursor-pointer w-full gap-2 hover:bg-gray-200 hover:underline"
-            onClick={() =>
-              router.push(
-                "/blog/Mastering-Java-A-Comprehensive-Guide-to-Java-Programming"
-              )
-            }
-          >
-            <div className="w-[100px] h-[60px]">
-              <Image
-                src={
-                  "https://res.cloudinary.com/dcej7jjak/image/upload/v1690882966/fxlv7q8wm277c3bvohzk.webp"
-                }
-                width={0}
-                height={0}
-                sizes="100vw"
-                style={{ width: "100%" }}
-              />
+          {blog.popularBlogs.map((item, index) => (
+            <div className="grid grid-cols-[1fr_3fr] p-[5px] transition-all duration-150 ease-in-out items-center justify-between cursor-pointer w-full gap-2  hover:underline">
+              <div className="w-[100px] h-[60px]">
+                <Image
+                  src={item.poster.url}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
+              <Link
+                href={`/blog/${item.title.replace(/\s+/g, "-")}/${item._id}`}
+                className="line-clamp-3 text-[15px]"
+              >
+                {item.title}
+              </Link>
             </div>
-            <p className="line-clamp-3 text-[15px]">
-              Mastering Java: A Comprehensive Guide to Java Programming
-            </p>
-          </div>
+          ))}
         </div>
         <div className="flex flex-col w-full p-[20px]">
           <p className="text-[24px] font-bold">Tags</p>

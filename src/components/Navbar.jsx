@@ -2,269 +2,37 @@
 import Image from "next/image";
 import logo from "../../public/logo.png";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-const Navbar = () => {
+import { logout } from "@/redux/actions/user";
+import { useDispatch } from "react-redux";
+
+const Navbar = ({ user }) => {
   const [profile, setProfile] = useState(false);
   const [nav, setNav] = useState(false);
-  const router = useRouter();
-  return (
-    // <>
-    //   {/* <div className="py-2 flex items-center justify-around sticky top-0 z-50 bg-white ">
-    //     <Link href={"/"} onClick={() => setNav(false)}>
-    //       <Image src={logo} width={80} height={35} alt="image" />
-    //     </Link>
-    //     <div>
-    //       <ul className="flex items-center gap-14 ">
-    //         <li>
-    //           <Link href={"/help"} onClick={() => setNav(false)}>
-    //             <button className="w-[130px] text-[#8d49f7] border-[1px] border-[#6b53ff] text-[18px] bg-white hover:border-[#6b53ff] hover:border-[2px] py-[5px] rounded-md tex font-medium">
-    //               Project Help!
-    //             </button>
-    //           </Link>
-    //         </li>
-    //         <li>
-    //           <Link href={"/"} onClick={() => setNav(false)}>
-    //             Home
-    //           </Link>
-    //         </li>
-    //         <li>
-    //           <Link href={"/blog"} onClick={() => setNav(false)}>
-    //             Blog
-    //           </Link>
-    //         </li>
-    //         <li>
-    //           <Link href={"/about"} onClick={() => setNav(false)}>
-    //             About
-    //           </Link>
-    //         </li>
-    //         <li>
-    //           <Link href={"/contact"} onClick={() => setNav(false)}>
-    //             Contact
-    //           </Link>
-    //         </li>
-    //         <li>
-    //           <div className="flex flex-col ">
-    //             <button onClick={() => setNav(!show)}>Profile</button>
-    //             <div className="relative">
-    //               <div
-    //                 className={`z-10 ${
-    //                   show ? "block" : "hidden"
-    //                 } bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute top-3  `}
-    //               >
-    //                 <div className="px-4 py-3 text-sm  bg-green-400 rounded-t-lg text-white">
-    //                   <div>Devansh Upadhyay</div>
-    //                   <div className="font-medium truncate">
-    //                     devanshupadhyay2611@gmail.com
-    //                   </div>
-    //                 </div>
-    //                 <ul
-    //                   className="py-2 text-sm text-gray-700 dark:text-gray-200"
-    //                   aria-labelledby="dropdownInformationButton"
-    //                 >
-    //                   <li>
-    //                     <Link
-    //                       href={"/my-account"}
-    //                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-    //                       onClick={() => setNav(false)}
-    //                     >
-    //                       My Account
-    //                     </Link>
-    //                   </li>
-    //                   <li>
-    //                     <Link
-    //                       href={"/my-courses"}
-    //                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-    //                       onClick={() => setNav(false)}
-    //                     >
-    //                       My Courses
-    //                     </Link>
-    //                   </li>
-    //                   <li>
-    //                     <Link
-    //                       href={"/refer-&-earn"}
-    //                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-    //                       onClick={() => setNav(false)}
-    //                     >
-    //                       Refer And Earn
-    //                     </Link>
-    //                   </li>
-    //                 </ul>
-    //                 <div className="py-2">
-    //                   <a
-    //                     href="#"
-    //                     className="block px-4 py-2 text-md text-purple-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-    //                   >
-    //                     Sign out
-    //                   </a>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </li>
-    //         <li>
-    //           <Link href={"/login"} onClick={() => setNav(false)}>
-    //             <button className="w-[90px] text-[#8d49f7] border-[1px] border-[#6b53ff] text-[18px] bg-white hover:border-[#6b53ff] hover:border-[2px] py-[5px] rounded-md tex font-medium ">
-    //               Log in
-    //             </button>
-    //           </Link>
-    //         </li>
-    //         <li>
-    //           <Link href={"/register"} onClick={() => setNav(false)}>
-    //             <button className="w-[90px] text-[#fff] border-[1px] border-[#6b53ff] text-[18px] bg-white hover:border-[#f8f3fe] hover:border-[1px] py-[5px] rounded-md tex font-medium bg-gradient-to-r from-[#8d49f7] to-[#6b53ff] transition ease-in-out delay-20">
-    //               Sign up
-    //             </button>
-    //           </Link>
-    //         </li>
-    //       </ul>
-    //     </div>
-    //   </div> */}
 
-    //   {/* <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-    //     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    //       <a href="https://flowbite.com/" className="flex items-center">
-    //         <img
-    //           src="https://flowbite.com/docs/images/logo.svg"
-    //           className="h-8 mr-3"
-    //           alt="Flowbite Logo"
-    //         />
-    //         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-    //           Flowbite
-    //         </span>
-    //       </a>
-    //       <div className="flex md:order-2">
-    //         <button
-    //           type="button"
-    //           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-    //         >
-    //           Get started
-    //         </button>
-    //         <button
-    //           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-    //           onClick={() => setNav(!nav)}
-    //         >
-    //           <span className="sr-only">Open main menu</span>
-    //           <svg
-    //             className="w-5 h-5"
-    //             aria-hidden="true"
-    //             xmlns="http://www.w3.org/2000/svg"
-    //             fill="none"
-    //             viewBox="0 0 17 14"
-    //           >
-    //             <path
-    //               stroke="currentColor"
-    //               stroke-linecap="round"
-    //               stroke-linejoin="round"
-    //               stroke-width="2"
-    //               d="M1 1h15M1 7h15M1 13h15"
-    //             />
-    //           </svg>
-    //         </button>
-    //       </div>
-    //       <div
-    //         className={`items-center justify-between ${
-    //           nav ? "flex" : "hidden"
-    //         } w-full md:flex md:w-auto md:order-1`}
-    //       >
-    //         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-    //           <li>
-    //             <a
-    //               href="#"
-    //               className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-    //               aria-current="page"
-    //             >
-    //               Home
-    //             </a>
-    //           </li>
-    //           <li>
-    //             <a
-    //               href="#"
-    //               className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-    //             >
-    //               About
-    //             </a>
-    //           </li>
-    //           <li>
-    //             <a
-    //               href="#"
-    //               className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-    //             >
-    //               Services
-    //             </a>
-    //           </li>
-    //           <li>
-    //             <a
-    //               href="#"
-    //               className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-    //             >
-    //               Contact
-    //             </a>
-    //           </li>
-    //           <li>
-    //             <div className="flex flex-col ">
-    //               <button onClick={() => setNav(!show)}>Profile</button>
-    //               <div className="relative">
-    //                 <div
-    //                   className={`z-10 ${
-    //                     show ? "block" : "hidden"
-    //                   } bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute top-3  `}
-    //                 >
-    //                   <div className="px-4 py-3 text-sm  bg-green-400 rounded-t-lg text-white">
-    //                     <div>Devansh Upadhyay</div>
-    //                     <div className="font-medium truncate">
-    //                       devanshupadhyay2611@gmail.com
-    //                     </div>
-    //                   </div>
-    //                   <ul
-    //                     className="py-2 text-sm text-gray-700 dark:text-gray-200"
-    //                     aria-labelledby="dropdownInformationButton"
-    //                   >
-    //                     <li>
-    //                       <Link
-    //                         href={"/my-account"}
-    //                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-    //                         onClick={() => setNav(false)}
-    //                       >
-    //                         My Account
-    //                       </Link>
-    //                     </li>
-    //                     <li>
-    //                       <Link
-    //                         href={"/my-courses"}
-    //                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-    //                         onClick={() => setNav(false)}
-    //                       >
-    //                         My Courses
-    //                       </Link>
-    //                     </li>
-    //                     <li>
-    //                       <Link
-    //                         href={"/refer-&-earn"}
-    //                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-    //                         onClick={() => setNav(false)}
-    //                       >
-    //                         Refer And Earn
-    //                       </Link>
-    //                     </li>
-    //                   </ul>
-    //                   <div className="py-2">
-    //                     <a
-    //                       href="#"
-    //                       className="block px-4 py-2 text-md text-purple-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-    //                     >
-    //                       Sign out
-    //                     </a>
-    //                   </div>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           </li>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   </nav> */}
-    // </>
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    setNav(false);
+    setProfile(false);
+    dispatch(logout());
+    location.replace("/");
+
+    // router.push("/");
+  };
+  // console.log(user);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    // setTimeout(() => {
+    //   setProfile(true);
+    // }, 5000);
+  }, []);
+
+  return (
     <>
       <nav className="bg-white sticky top-0 z-50">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -312,23 +80,18 @@ const Navbar = () => {
               </button>
             </div>
             <div
-              className="flex flex-1 items-center justify-center  lg:justify-around"
+              className="flex flex-1 items-center justify-center  lg:justify-evenly"
               // style={{ border: "2px solid red" }}
             >
               <div
                 className="flex flex-shrink-0 items-center"
                 // style={{ border: "2px solid green" }}
               >
-                {/* <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt="Your Company"
-                /> */}
                 <Image
                   className="cursor-pointer select-none"
                   src={"/logo.png"}
                   width={75}
-                  height={100}
+                  height={40}
                   onClick={() => router.push("/")}
                 />
               </div>
@@ -349,13 +112,13 @@ const Navbar = () => {
                   </Link>
                   <Link
                     className=" hover:bg-gray-300 rounded-md px-3 py-2 text-md font-medium"
-                    href={"/"}
+                    href={"/courses"}
                     onClick={() => {
                       setNav(false);
                       setProfile(false);
                     }}
                   >
-                    Home
+                    Courses
                   </Link>
                   <Link
                     className=" hover:bg-gray-300 rounded-md px-3 py-2 text-md font-medium"
@@ -390,24 +153,14 @@ const Navbar = () => {
                     Contact
                   </Link>
                   <Link
-                    href={"/login"}
-                    className="w-fit text-[#8d49f7] border-[1px] border-[#8d49f7] text-[18px] transition-all duration-300 ease-in-out bg-white  hover:text-white hover:bg-[#8d49f7] px-3 py-1 rounded-md tex font-medium"
+                    className="rounded-md px-5 py-2 text-md font-medium bg-orange-500 hover:bg-orange-600 text-white"
+                    href={"/request-demo"}
                     onClick={() => {
                       setNav(false);
                       setProfile(false);
                     }}
                   >
-                    Log in
-                  </Link>
-                  <Link
-                    href={"/register"}
-                    className="w-fit text-white border-[1px] border-[#8d49f7] text-[18px] transition-all duration-300 ease-in-out bg-[#8d49f7]  hover:text-[#8d49f7] hover:bg-white px-3 py-1 rounded-md tex font-medium"
-                    onClick={() => {
-                      setNav(false);
-                      setProfile(false);
-                    }}
-                  >
-                    Sign up
+                    Book a Free Lesson
                   </Link>
                 </div>
               </div>
@@ -440,43 +193,79 @@ const Navbar = () => {
                   >
                     <span className="absolute -inset-1.5"></span>
                     <span className="sr-only">Open user menu</span>
-                    <img
-                      className="h-8 w-8 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
+                    <Image
+                      className="rounded-full"
+                      src={`${
+                        isClient && user && user.avatar.url !== "url"
+                          ? user?.avatar.url
+                          : "https://res.cloudinary.com/dcej7jjak/image/upload/v1697101152/profile-icon_j8vu7y.png"
+                      }`}
+                      width={30}
+                      height={30}
                     />
                   </button>
                 </div>
 
                 <div
                   className={`absolute ${
-                    profile ? "" : "hidden"
-                  } right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  select-none`}
+                    profile ? "flex" : "hidden"
+                  } right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-3 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none  select-none items-center flex-col gap-2`}
+                  // style={{ border: "2px solid red" }}
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="user-menu-button"
                   tabindex="-1"
                 >
-                  <Link
-                    href={"/my-account"}
-                    className="block px-4 py-2 text-sm text-gray-700  hover:bg-gray-300"
-                    onClick={() => {
-                      setNav(false);
-                      setProfile(false);
-                    }}
-                  >
-                    My Account
-                  </Link>
-                  <Link
-                    href={"/my-courses"}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300"
-                    onClick={() => {
-                      setNav(false);
-                      setProfile(false);
-                    }}
-                  >
-                    My Courses
-                  </Link>
+                  {!user && (
+                    <>
+                      <Link
+                        href={"/login"}
+                        className="w-fit text-[#8d49f7] border-[1px] border-[#8d49f7] text-[18px] transition-all duration-300 ease-in-out bg-white  hover:text-white hover:bg-[#8d49f7] px-3 py-1 rounded-md tex font-medium block"
+                        // style={{ border: "2px solid red" }}
+                        onClick={() => {
+                          setNav(false);
+                          setProfile(false);
+                        }}
+                      >
+                        Log in
+                      </Link>
+                      <Link
+                        href={"/register"}
+                        className="w-fit text-white border-[1px] border-[#8d49f7] text-[18px] transition-all duration-300 ease-in-out bg-[#8d49f7]  hover:text-[#8d49f7] hover:bg-white px-3 py-1 rounded-md tex font-medium block"
+                        // style={{ border: "2px solid red" }}
+                        onClick={() => {
+                          setNav(false);
+                          setProfile(false);
+                        }}
+                      >
+                        Sign up
+                      </Link>
+                    </>
+                  )}
+                  {user && (
+                    <>
+                      <Link
+                        href={"/my-account"}
+                        className="block px-4 py-2 text-sm text-gray-700  hover:bg-gray-300"
+                        onClick={() => {
+                          setNav(false);
+                          setProfile(false);
+                        }}
+                      >
+                        My Account
+                      </Link>
+                      <Link
+                        href={"/my-courses"}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300"
+                        onClick={() => {
+                          setNav(false);
+                          setProfile(false);
+                        }}
+                      >
+                        My Courses
+                      </Link>
+                    </>
+                  )}
                   <Link
                     href={"/refer-&-earn"}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300"
@@ -487,6 +276,14 @@ const Navbar = () => {
                   >
                     Refer and Earn
                   </Link>
+                  {user && (
+                    <button
+                      className="block px-4 py-2 text-md w-full text-gray-700 hover:bg-gray-300"
+                      onClick={logoutHandler}
+                    >
+                      Logout
+                    </button>
+                  )}
                   {/* <a
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-700"
@@ -543,13 +340,13 @@ const Navbar = () => {
             </Link>
             <Link
               className=" hover:bg-gray-300 rounded-md px-3 py-2 text-md font-medium"
-              href={"/"}
+              href={"/courses"}
               onClick={() => {
                 setNav(false);
                 setProfile(false);
               }}
             >
-              Home
+              Courses
             </Link>
             <Link
               className=" hover:bg-gray-300 rounded-md px-3 py-2 text-md font-medium"
@@ -584,24 +381,14 @@ const Navbar = () => {
               Contact
             </Link>
             <Link
-              href={"/login"}
-              className="w-fit text-[#8d49f7] block border-[1px]  border-[#8d49f7] text-[18px] transition-all duration-300 ease-in-out bg-white  hover:text-white hover:bg-[#8d49f7] px-3 py-2 my-2 rounded-md tex font-medium"
+              className="rounded-md px-3 w-fit py-2 text-md font-medium bg-orange-500 hover:bg-orange-600 text-white"
+              href={"/request-demo"}
               onClick={() => {
                 setNav(false);
                 setProfile(false);
               }}
             >
-              Log in
-            </Link>
-            <Link
-              href={"/register"}
-              className="w-fit text-white block border-[1px] border-[#8d49f7] text-[18px] transition-all duration-300 ease-in-out bg-[#8d49f7]  hover:text-[#8d49f7] hover:bg-white px-3 py-2 my-2 rounded-md tex font-medium"
-              onClick={() => {
-                setNav(false);
-                setProfile(false);
-              }}
-            >
-              Sign up
+              Book a Free Lesson
             </Link>
           </div>
         </div>

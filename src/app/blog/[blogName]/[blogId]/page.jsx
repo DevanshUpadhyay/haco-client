@@ -3,8 +3,11 @@ import BlogSiderbar from "@/components/BlogSiderbar";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
 import BlogContent from "@/components/BlogContent";
+import { getAllBlogs, getSingleBlog } from "@/functions";
 
-const SingleBlog = () => {
+const SingleBlog = async ({ params }) => {
+  const blog = await getAllBlogs();
+  const singleBlog = await getSingleBlog(params.blogId);
   return (
     <>
       <div className="flex flex-col">
@@ -23,38 +26,34 @@ const SingleBlog = () => {
                   </Link>
                   <AiOutlineRight color="white" />
                 </div>
-                <p className="text-white">
-                  Mastering Java: A Comprehensive Guide to Java Programming
-                </p>
+                <p className="text-white">{singleBlog.title}</p>
               </div>
               <div className="flex flex-col p-2">
                 <p className="text-white text-[20px] md:text-[28px] lg:text-[35px] font-bold">
-                  Mastering Java: A Comprehensive Guide to Java Programming
+                  {singleBlog.title}
                 </p>
                 <div className="flex items-center w-full gap-[20px]">
                   <p className="bg-green-400 p-[4px] rounded-[5px] text-center text-white">
-                    Programming Language
+                    {singleBlog.category}
                   </p>
-                  <p className="text-white">1 August 2023</p>
-                  <p className="text-white">Chirag Bum</p>
+                  <p className="text-white"> {singleBlog.postedAt}</p>
+                  <p className="text-white"> {singleBlog.createdBy}</p>
                 </div>
               </div>
             </div>
             <div className="flex flex-col bg-white p-2">
               <Image
-                src={
-                  "https://res.cloudinary.com/dcej7jjak/image/upload/v1690882966/fxlv7q8wm277c3bvohzk.webp"
-                }
+                src={singleBlog.poster.url}
                 width={0}
                 height={0}
                 sizes="100vw"
                 className="w-full h-[230px] md:h-[300px] lg:h-[350px]"
               />
 
-              <BlogContent />
+              <BlogContent content={singleBlog.content} />
             </div>
           </div>
-          <BlogSiderbar />
+          <BlogSiderbar blog={blog} />
         </div>
       </div>
     </>

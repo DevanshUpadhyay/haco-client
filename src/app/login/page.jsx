@@ -1,11 +1,38 @@
 "use client";
+import { login } from "@/redux/actions/user";
 import Link from "next/link";
-import { useState } from "react";
+// import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
+  // const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const { isAuthenticated, user, message, error, loading } = useSelector(
+    (state) => state.user
+  );
+  const dispatch = useDispatch();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(login(email, password));
+  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (error) {
+        toast.error(error);
+        dispatch({ type: "clearError" });
+      }
+      if (message) {
+        toast.success(message);
+        dispatch({ type: "clearMessage" });
+        // router.push("/");
+        location.replace("/");
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [dispatch, error, message]);
   return (
     <div
       className="flex flex-col h-[90vh] justify-center items-center"
@@ -15,10 +42,10 @@ const Login = () => {
         className="flex flex-col w-full gap-6 items-center"
         // style={{ border: "2px solid green" }}
       >
-        <p className="text-[30px] font-bold">Welcome to haco.study</p>
-        <div
-          className="flex flex-col w-full sm:w-[70%] lg:w-[40%] gap-4 p-2"
-          // style={{ border: "2px solid green" }}
+        <p className="text-[30px] font-bold">Welcome to Haco</p>
+        <form
+          onSubmit={submitHandler}
+          className="flex flex-col w-[90%] sm:w-[70%] lg:w-[40%] gap-4 p-2"
         >
           <div
             className=" flex flex-col gap-3"
@@ -32,6 +59,7 @@ const Login = () => {
               id="email"
               value={email}
               placeholder="abc@gmail.com"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className=" flex flex-col gap-3">
@@ -43,6 +71,7 @@ const Login = () => {
               id="password"
               value={password}
               placeholder="Enter Your Password"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div>
@@ -53,7 +82,10 @@ const Login = () => {
               Forget Password?
             </Link>
           </div>
-          <button className=" bg-orange-400 py-[5px] px-[15px] rounded-md text-white hover:bg-orange-500 transition-all duration-300 ease-in-out w-[150px]">
+          <button
+            className=" bg-orange-400 py-[5px] px-[15px] rounded-md text-white hover:bg-orange-500 transition-all duration-300 ease-in-out w-[150px]"
+            type="submit"
+          >
             Login
           </button>
           <div>
@@ -66,7 +98,7 @@ const Login = () => {
             </Link>{" "}
             here
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

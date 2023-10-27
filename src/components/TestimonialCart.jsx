@@ -17,10 +17,10 @@ const TestimonialCart = ({
   const [show, setShow] = useState(false);
   return (
     <>
-      <div className="h-[520px] lg:w-[380px] md:w-[360px] w-[360px]  p-[15px] gap-[10px] relative flex flex-col items-center bg-white rounded-xl  select-none">
+      <div className="h-[520px] p-4 sm:p-2 md:p-4 gap-[10px] relative flex flex-col items-center bg-white rounded-xl  select-none">
         <div className="relative">
           <div className="flex flex-col ">
-            <div className="flex gap-[10px] items-center ">
+            <div className="flex  gap-3 items-center">
               <Image
                 src={profileIconSrc}
                 width={60}
@@ -44,9 +44,9 @@ const TestimonialCart = ({
             </div>
           </div>
           <p className="line-clamp-2">{`"${comment}"`}</p>
-          {show && (
+          {/* {show && (
             <div
-              className="z-10 absolute  bottom-[-40px] right-[70px]  cursor-pointer text-white bg-transparent"
+              className="z-10 absolute  -bottom-[33%] right-[22%]  cursor-pointer text-white bg-transparent"
               onClick={() => setShow(false)}
             >
               <AiOutlineClose
@@ -56,7 +56,7 @@ const TestimonialCart = ({
                 style={{ backgroundColor: "transparent" }}
               />
             </div>
-          )}
+          )} */}
         </div>
         <div
           className="relative h-[380px] pb-4 flex justify-center items-center"

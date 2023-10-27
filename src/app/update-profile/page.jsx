@@ -1,10 +1,30 @@
 "use client";
-
-import { useState } from "react";
+import { updateProfile } from "@/redux/actions/profile";
+import { loadUser } from "@/redux/actions/user";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 
 const UpdateProfile = () => {
-  const [name, setName] = useState("Devansh Upadhyay");
-  // const [email, setEmail] = useState(user.email);
+  const [name, setName] = useState("");
+  const { loading, message, error } = useSelector((state) => state.profile);
+  const dispatch = useDispatch();
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    await dispatch(updateProfile(name));
+    await dispatch(loadUser());
+    await location.replace("/my-account");
+  };
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch({ type: "clearError" });
+    }
+    if (message) {
+      toast.success(message);
+      dispatch({ type: "clearMessage" });
+    }
+  }, [dispatch, error, message]);
   return (
     <>
       <div className="w-full h-[70vh] flex flex-col items-center justify-center p-3">
@@ -21,7 +41,10 @@ const UpdateProfile = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            <button className="w-fit px-[15px] py-[7px] text-white bg-yellow-500 transition-all duration-300 ease-in-out hover:bg-yellow-600 rounded-md">
+            <button
+              className="w-fit px-[15px] py-[7px] text-white bg-yellow-500 transition-all duration-300 ease-in-out hover:bg-yellow-600 rounded-md"
+              onClick={submitHandler}
+            >
               {" "}
               Update
             </button>

@@ -2,49 +2,48 @@
 import React, { useState, useRef } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { MdOndemandVideo } from "react-icons/md";
-const lectures = [
-  {
-    id: 1,
-    header: "INTRODUCTION",
-    listItems: [
-      "Introduction to Java",
-      "Platform Independent",
-      "Eclipse Setup",
-    ],
-  },
-  {
-    id: 2,
-    header: "FUNDAMENTALS",
-    listItems: [
-      "Java Fundamentals",
-      "Explanation (Part 1)",
-      "Explanation (Part 2)",
-      "Explanation (Part 3)",
-      "Explanation (Part 4)",
-    ],
-  },
-  {
-    id: 3,
-    header: "Classes",
-    listItems: [
-      "Flow of controls",
-      "Explanation (Part 1)",
-      "Explanation (Part 2)",
-      "Explanation (Part 3)",
-      "Explanation (Part 4)",
-    ],
-  },
-  {
-    id: 4,
-    header: "METHODS/FUNCTIONS",
-    listItems: ["What are methods", "Methods Examples"],
-  },
-];
+// const lectures = [
+//   {
+//     id: 1,
+//     header: "INTRODUCTION",
+//     listItems: [
+//       "Introduction to Java",
+//       "Platform Independent",
+//       "Eclipse Setup",
+//     ],
+//   },
+//   {
+//     id: 2,
+//     header: "FUNDAMENTALS",
+//     listItems: [
+//       "Java Fundamentals",
+//       "Explanation (Part 1)",
+//       "Explanation (Part 2)",
+//       "Explanation (Part 3)",
+//       "Explanation (Part 4)",
+//     ],
+//   },
+//   {
+//     id: 3,
+//     header: "Classes",
+//     listItems: [
+//       "Flow of controls",
+//       "Explanation (Part 1)",
+//       "Explanation (Part 2)",
+//       "Explanation (Part 3)",
+//       "Explanation (Part 4)",
+//     ],
+//   },
+//   {
+//     id: 4,
+//     header: "METHODS/FUNCTIONS",
+//     listItems: ["What are methods", "Methods Examples"],
+//   },
+// ];
 
 const AccordionItem = (props) => {
   const contentEl = useRef();
-  const { handleToggle, active, lecture } = props;
-  const { header, id, listItems } = lecture;
+  const { handleToggle, active, id, title, lectures } = props;
 
   return (
     <div className="rc-accordion-card">
@@ -55,7 +54,7 @@ const AccordionItem = (props) => {
         >
           <BsChevronDown className="rc-accordion-icon" />
           <h5 className="rc-accordion-title ">
-            {header} (Lectures-{listItems.length})
+            {title} (Lectures-{lectures.length})
           </h5>
         </div>
       </div>
@@ -70,10 +69,10 @@ const AccordionItem = (props) => {
       >
         <div className="rc-accordion-body">
           <ul>
-            {listItems.map((item, index) => (
+            {lectures.map((item, index) => (
               <li className="flex items-center gap-3">
                 <MdOndemandVideo fontSize={"17px"} />
-                <p className="text-[17px]">{item}</p>
+                <p className="text-[17px]">{item.title}</p>
               </li>
             ))}
           </ul>
@@ -83,7 +82,7 @@ const AccordionItem = (props) => {
   );
 };
 
-const Accordion = () => {
+const Accordion = ({ course }) => {
   const [active, setActive] = useState(null);
 
   const handleToggle = (index) => {
@@ -101,13 +100,15 @@ const Accordion = () => {
           <div className="col-md-8 mt-2">
             <div className="accordion_card">
               <div className="card-body">
-                {lectures.map((lecture, index) => {
+                {course.sections.map((item, index) => {
                   return (
                     <AccordionItem
                       key={index}
                       active={active}
                       handleToggle={handleToggle}
-                      lecture={lecture}
+                      id={index}
+                      title={item.title}
+                      lectures={item.lectures}
                     />
                   );
                 })}
