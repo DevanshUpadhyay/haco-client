@@ -1,6 +1,6 @@
 "use client";
 
-import { SubmitUserDetails } from "@/redux/actions/other";
+import { submitUserDetails } from "@/redux/actions/other";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -40,7 +40,7 @@ const RequestDemo = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
-      SubmitUserDetails(who, level, grade, subject, text, phoneNumber, country)
+      submitUserDetails(who, level, grade, subject, text, phoneNumber, country)
     );
     router.push("/login");
   };

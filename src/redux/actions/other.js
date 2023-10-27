@@ -23,7 +23,7 @@ export const contactUs = (name, email, message) => async (dispatch) => {
     });
   }
 };
-export const SubmitUserDetails =
+export const submitUserDetails =
   (who, level, grade, subject, text, phoneNumber, country) =>
   async (dispatch) => {
     try {
