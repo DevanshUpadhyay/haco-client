@@ -70,7 +70,10 @@ export default async function Home() {
         </div>
         <div className="flex flex-col md:flex-row flex-wrap w-full justify-center items-center gap-10 ">
           {courses?.map((item, index) => (
-            <div className="w-[90%] lg:w-[350px] md:w-[360px]  rounded-[5px] flex flex-col shadow-[0_0_10px_rgba(0,0,0,0.535)] relative hover:translate-y-[-10px] transition-all duration-500 ease-in-out">
+            <div
+              key={index}
+              className="w-[90%] lg:w-[350px] md:w-[360px]  rounded-[5px] flex flex-col shadow-[0_0_10px_rgba(0,0,0,0.535)] relative hover:translate-y-[-10px] transition-all duration-500 ease-in-out"
+            >
               <div className="rounded-[5px]">
                 <Image
                   src={item.poster.url}

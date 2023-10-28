@@ -779,6 +779,19 @@ const RequestDemo = () => {
                 </button>
               )}
             </div>
+            <p
+              id="helper-text-explanation"
+              class="mt-2 text-sm text-gray-500 dark:text-gray-400"
+            >
+              We’ll never share your details. Read our{" "}
+              <Link
+                href="/privacy-policy"
+                class="font-medium text-blue-600 hover:underline dark:text-blue-500"
+              >
+                Privacy Policy
+              </Link>
+              .
+            </p>
           </div>
         )}
         {/* {step === 7 && (

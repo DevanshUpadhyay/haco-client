@@ -2,44 +2,6 @@
 import React, { useState, useRef } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { MdOndemandVideo } from "react-icons/md";
-// const lectures = [
-//   {
-//     id: 1,
-//     header: "INTRODUCTION",
-//     listItems: [
-//       "Introduction to Java",
-//       "Platform Independent",
-//       "Eclipse Setup",
-//     ],
-//   },
-//   {
-//     id: 2,
-//     header: "FUNDAMENTALS",
-//     listItems: [
-//       "Java Fundamentals",
-//       "Explanation (Part 1)",
-//       "Explanation (Part 2)",
-//       "Explanation (Part 3)",
-//       "Explanation (Part 4)",
-//     ],
-//   },
-//   {
-//     id: 3,
-//     header: "Classes",
-//     listItems: [
-//       "Flow of controls",
-//       "Explanation (Part 1)",
-//       "Explanation (Part 2)",
-//       "Explanation (Part 3)",
-//       "Explanation (Part 4)",
-//     ],
-//   },
-//   {
-//     id: 4,
-//     header: "METHODS/FUNCTIONS",
-//     listItems: ["What are methods", "Methods Examples"],
-//   },
-// ];
 
 const AccordionItem = (props) => {
   const contentEl = useRef();
@@ -100,18 +62,16 @@ const Accordion = ({ course }) => {
           <div className="col-md-8 mt-2">
             <div className="accordion_card">
               <div className="card-body">
-                {course.sections.map((item, index) => {
-                  return (
-                    <AccordionItem
-                      key={index}
-                      active={active}
-                      handleToggle={handleToggle}
-                      id={index}
-                      title={item.title}
-                      lectures={item.lectures}
-                    />
-                  );
-                })}
+                {course.sections.map((item, index) => (
+                  <AccordionItem
+                    key={index}
+                    active={active}
+                    handleToggle={handleToggle}
+                    id={index}
+                    title={item.title}
+                    lectures={item.lectures}
+                  />
+                ))}
               </div>
             </div>
           </div>

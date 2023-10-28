@@ -47,7 +47,10 @@ const BlogSiderbar = ({ blog }) => {
         <div className="flex flex-col p-[10px] w-full gap-[20px]">
           <p className="text-[24px] font-bold">Recent Posts</p>
           {blog.recentBlogs.map((item, index) => (
-            <div className="grid grid-cols-[1fr_3fr] p-[5px] transition-all duration-150 ease-in-out items-center justify-between  cursor-pointer w-full gap-2  hover:underline">
+            <div
+              key={index}
+              className="grid grid-cols-[1fr_3fr] p-[5px] transition-all duration-150 ease-in-out items-center justify-between  cursor-pointer w-full gap-2  hover:underline"
+            >
               <div className="w-[90px] h-[60px]">
                 <Image
                   src={item.poster.url}
@@ -69,7 +72,10 @@ const BlogSiderbar = ({ blog }) => {
         <div className="flex flex-col p-[10px] w-full gap-[20px]">
           <p className="text-[24px] font-bold">Popular Posts</p>
           {blog.popularBlogs.map((item, index) => (
-            <div className="grid grid-cols-[1fr_3fr] p-[5px] transition-all duration-150 ease-in-out items-center justify-between cursor-pointer w-full gap-2  hover:underline">
+            <div
+              key={index}
+              className="grid grid-cols-[1fr_3fr] p-[5px] transition-all duration-150 ease-in-out items-center justify-between cursor-pointer w-full gap-2  hover:underline"
+            >
               <div className="w-[100px] h-[60px]">
                 <Image
                   src={item.poster.url}

@@ -13,7 +13,10 @@ const Blog = async () => {
         <div className="grid grid-cols-1 md:grid-cols-[5fr_2fr] gap-[10px] p-2 md:p-3 lg:p-6 py-[20px]">
           <div className="flex flex-col gap-[20px]">
             {blogs.map((item, index) => (
-              <div className="flex flex-col bg-white hover:shadow-[0_0_10px_rgba(0, 0, 0, 0.300)]  w-full transition-all duration-300 relative rounded-[5px]">
+              <div
+                key={index}
+                className="flex flex-col bg-white hover:shadow-[0_0_10px_rgba(0, 0, 0, 0.300)]  w-full transition-all duration-300 relative rounded-[5px]"
+              >
                 <Image
                   src={item.poster.url}
                   width={0}

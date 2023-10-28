@@ -41,7 +41,7 @@ const page = () => {
                   Book a Free Lesson
                 </Link>
                 <Link
-                  href="/home"
+                  href="/courses"
                   className="inline-flex items-center justify-center px-2 xs:px-3 lg:px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-300 focus:ring-4 focus:ring-gray-100 "
                 >
                   Get started

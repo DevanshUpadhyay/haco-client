@@ -128,7 +128,7 @@ const MyCourses = async () => {
                   You are not subscribed any course yet
                 </p>
                 <Link
-                  href={"/home"}
+                  href={"/courses"}
                   className="w-fit px-[15px] py-[7px] text-white bg-purple-500 transition-all duration-300 ease-in-out hover:bg-purple-600 rounded-md"
                 >
                   Go to Home

@@ -67,7 +67,7 @@ const CourseDetails = async ({ params }) => {
             <p className="text-[20px] font-bold">What you'll learn</p>
             <ul className="grid grid-cols-2 gap-3">
               {course?.details?.learningPoints?.map((item, index) => (
-                <li className="flex items-center gap-3">
+                <li key={index} className="flex items-center gap-3">
                   <BiCheck /> <p> {item.points}</p>
                 </li>
               ))}
@@ -77,7 +77,10 @@ const CourseDetails = async ({ params }) => {
             <p className="text-[20px] font-bold">Course content</p>
             <ul className="flex flex-col gap-3">
               {course?.details?.content?.map((item, index) => (
-                <li className="border-[1px] border-gray-400 py-[10px] px-[25px] shadow-sm font-medium">
+                <li
+                  key={index}
+                  className="border-[1px] border-gray-400 py-[10px] px-[25px] shadow-sm font-medium"
+                >
                   {item.points}
                 </li>
               ))}

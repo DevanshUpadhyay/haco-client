@@ -120,7 +120,7 @@ const CourseContent = () => {
           <p className="text-[24px] font-bold ">Java Programming + SQL</p>
           <div className="flex flex-col h-[700px] overflow-y-scroll  gap-6 p-[10px] shadow-md">
             {course[0].sections.map((sectionItem, sectionIndex) => (
-              <div className="flex flex-col gap-3">
+              <div key={sectionIndex} className="flex flex-col gap-3">
                 <div
                   className="grid grid-cols-[1fr_3fr] md:grid-cols-[2fr_3fr] items-center p-[10px] justify-center"
                   onClick={() => {
@@ -135,6 +135,7 @@ const CourseContent = () => {
                 </div>
                 {sectionItem.lectures.map((lectureItem, lectureIndex) => (
                   <div
+                    key={lectureIndex}
                     className="grid grid-cols-[3fr_5fr] p-[5px] items-center gap-3 cursor-pointer transition-all duration-300 ease-in-out hover:bg-gray-300 shadow-sm"
                     onClick={() => {
                       setSectionNumber(sectionIndex);
