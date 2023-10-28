@@ -1,13 +1,14 @@
 "use client";
 import ButtonLoader from "@/components/ButtonLoader";
 import Loader from "@/components/Loader";
+import { isAuthenticated } from "@/functions";
 import { sendOtp, updateProfilePicture } from "@/redux/actions/profile";
 import { loadUser } from "@/redux/actions/user";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { redirect, useRouter } from "next/navigation";
+import { useEffect, useLayoutEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -61,6 +62,12 @@ const MyAccount = () => {
     setImagePrev("");
     setImage("");
     setUser(JSON.parse(localStorage.getItem("userInfo")));
+  }, []);
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      redirect("/");
+    }
   }, []);
 
   return (

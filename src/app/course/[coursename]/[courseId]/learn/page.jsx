@@ -1,7 +1,7 @@
 "use client";
 import CourseContent from "@/components/CourseContent";
 import Loader from "@/components/Loader";
-import { isAuthenticated } from "@/functions";
+import { isAuthorized } from "@/functions";
 
 import { redirect } from "next/navigation";
 import { useLayoutEffect, useState } from "react";
@@ -9,7 +9,7 @@ import { useLayoutEffect, useState } from "react";
 const Learn = ({ params }) => {
   const [isClient, setIsClient] = useState(false);
   useLayoutEffect(() => {
-    const isAuth = isAuthenticated(params.courseId);
+    const isAuth = isAuthorized(params.courseId);
     if (!isAuth) {
       redirect("/");
     }

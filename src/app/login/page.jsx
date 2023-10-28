@@ -1,8 +1,10 @@
 "use client";
+import { isAuthenticated } from "@/functions";
 import { login } from "@/redux/actions/user";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 // import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,9 +12,8 @@ const Login = () => {
   // const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isAuthenticated, user, message, error, loading } = useSelector(
-    (state) => state.user
-  );
+  const { user, message, error, loading } = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -33,6 +34,13 @@ const Login = () => {
     }, 500);
     return () => clearTimeout(timer);
   }, [dispatch, error, message]);
+
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (isAuth) {
+      redirect("/");
+    }
+  }, []);
   return (
     <div
       className="flex flex-col h-[90vh] justify-center items-center"

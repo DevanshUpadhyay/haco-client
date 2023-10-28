@@ -1,8 +1,10 @@
 "use client";
+import { isAuthenticated } from "@/functions";
 import { register } from "@/redux/actions/user";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { redirect } from "next/navigation";
+import { useEffect, useLayoutEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 // export const fileUploadCss = {
@@ -62,6 +64,12 @@ const Register = () => {
     }, 500);
     return () => clearTimeout(timer);
   }, [dispatch, error, message]);
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (isAuth) {
+      redirect("/");
+    }
+  }, []);
   return (
     <div className="flex flex-col justify-center items-center mt-16 p-3">
       <div className="flex flex-col w-full gap-5 items-center">

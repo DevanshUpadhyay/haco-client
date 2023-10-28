@@ -1,6 +1,16 @@
+"use client";
+import { isAuthenticated } from "@/functions";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 import { RiErrorWarningFill } from "react-icons/ri";
 const PaymentFail = () => {
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      redirect("/");
+    }
+  }, []);
   return (
     <>
       <div className="flex flex-col h-[70vh] justify-center items-center">

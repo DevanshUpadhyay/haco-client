@@ -1,7 +1,9 @@
 "use client";
 
+import { isAuthenticated } from "@/functions";
 import { changePassword } from "@/redux/actions/profile";
-import { useEffect, useState } from "react";
+import { redirect } from "next/navigation";
+import { useEffect, useLayoutEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -25,6 +27,12 @@ const ChangePassword = () => {
     }
   }, [dispatch, error, message]);
 
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      redirect("/");
+    }
+  }, []);
   return (
     <>
       <div className="w-full h-[70vh] flex flex-col items-center justify-center p-3">

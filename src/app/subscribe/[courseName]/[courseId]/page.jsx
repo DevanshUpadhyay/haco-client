@@ -1,8 +1,10 @@
 "use client";
 import Checkout from "@/components/Checkout";
 import Loader from "@/components/Loader";
+import { isAuthenticated } from "@/functions";
+import { redirect } from "next/navigation";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 const Payment = async ({ params }) => {
   const [isClient, setIsClient] = useState(false);
   const [user, setUser] = useState({});
@@ -13,6 +15,12 @@ const Payment = async ({ params }) => {
     setUser(JSON.parse(localStorage.getItem("userInfo")));
   }, []);
 
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      redirect("/");
+    }
+  }, []);
   return (
     <>
       {!isClient ? (

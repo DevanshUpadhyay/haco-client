@@ -1,6 +1,16 @@
+"use client";
+import { isAuthenticated } from "@/functions";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 const PaymentSuccess = ({ params }) => {
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      redirect("/");
+    }
+  }, []);
   return (
     <>
       <div className="flex flex-col w-full h-[80vh] items-center p-2 gap-4">

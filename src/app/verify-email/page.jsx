@@ -1,12 +1,13 @@
 "use client";
 
 import Loader from "@/components/Loader";
+import { isAuthenticated } from "@/functions";
 import { verifyOtp } from "@/redux/actions/profile";
 import { loadUser } from "@/redux/actions/user";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -39,6 +40,12 @@ const VerifyOtp = () => {
     }
   }, [dispatch, error, message]);
 
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      redirect("/");
+    }
+  }, []);
   return (
     <>
       {!isClient ? (

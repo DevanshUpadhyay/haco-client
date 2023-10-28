@@ -18,7 +18,7 @@ export const getSingleBlog = async (id) => {
   const { data } = await axios.get(`${server}/blog/${id}`);
   return data.blog;
 };
-export const isAuthenticated = (id) => {
+export const isAuthorized = (id) => {
   const user = JSON.parse(localStorage.getItem("userInfo"));
   var check = false;
 
@@ -32,6 +32,16 @@ export const isAuthenticated = (id) => {
         }
       }
     }
+  }
+
+  return check;
+};
+export const isAuthenticated = () => {
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+  var check = false;
+
+  if (user) {
+    check = true;
   }
 
   return check;

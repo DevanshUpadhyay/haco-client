@@ -1,10 +1,12 @@
 "use client";
 import Loader from "@/components/Loader";
+import { isAuthenticated } from "@/functions";
 import { getAllCourses } from "@/redux/actions/course";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { redirect } from "next/navigation";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const MyCourses = async () => {
@@ -78,6 +80,13 @@ const MyCourses = async () => {
   useEffect(() => {
     setIsClient(true);
     setUser(JSON.parse(localStorage.getItem("userInfo")));
+  }, []);
+
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      redirect("/");
+    }
   }, []);
   return (
     <>
